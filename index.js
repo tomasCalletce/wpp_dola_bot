@@ -1,6 +1,7 @@
-const { Client } = require('whatsapp-web.js');
-var QR = require('qr-image');
 
+const { Client } = require('whatsapp-web.js');
+const QR = require('qr-image');
+const IsCustomer = require("./model/crud/isCustomer")
 const client = new Client();
 
 client.on('qr', (qr) => {
@@ -12,9 +13,10 @@ client.on('ready', () => {
     console.log('Client is ready!');
 });
 
-client.on('message', msg => {
-    if (msg.body != '') {
-        console.log('MESSAGE RECEIVED', msg);
+client.on('message', async msg => {
+    if (msg.body =! '') {
+        const res = await IsCustomer(msg);
+        console.log(res);
     }
 });
 

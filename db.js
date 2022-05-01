@@ -1,22 +1,10 @@
-import mongoose from "mongoose";
-import User from "./model/User.js"
-import Customer from "./model/Customer.js"
-import IsCustomer from "./model/crud/isCustomer.js"
-
+const mongoose = require('mongoose')
 mongoose.connect("mongodb+srv://letsMakeit22:HPbInbEnIVr8Zdam@cluster0.6ljw8.mongodb.net/Dola")
+module.exports = mongoose;
+// const Customer = require('./model/Customer.js')
 
-IsCustomer(Customer);
-
-
-// // Create a new blog post object
-// const user = new User({
-//     username: "tomascalletce",
-//     email: "tomascalletce@gamil.com",
-//     title: "admin",
-//     discordUsername : "tomas__calle",
-//     discordID : "#1753",
-//     hash: "hdjsjsa",
-//     salt: "fs"
+// const newCustomer = new Customer({
+//   cellPhone : "573175126894@c.us",
+//   messages : []
 // });
-// // Insert the article in our MongoDB database
-// await user.save();
+// newCustomer.save();
