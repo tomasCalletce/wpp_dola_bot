@@ -4,7 +4,7 @@ const QR = require('qr-image');
 const IsCustomer = require("./model/crud/isCustomer");
 const SaveMessage = require("./model/crud/saveMessage")
 const IsCustomerNotCreate = require("./model/crud/isCustomerNotCreate")
-const { default: mongoose } = require('mongoose');
+const { default : mongoose } = require('mongoose');
 const client = new Client();
 
 client.on('qr', (qr) => {
