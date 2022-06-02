@@ -6,7 +6,11 @@ const userSchema = new Schema({
     username: String,
     email: String,
     title: String,
-    discordUsername : String,
+    discordUsername : {
+        type: String,
+        require: true,
+     
+    },
     discordID : String,
     hash: String,
     salt: String

@@ -4,7 +4,7 @@ const { Schema, model } = mongoose;
 
 const customerSchema = new Schema({
     cellPhone : String,
-    user : { type: Schema.Types.ObjectId, ref: 'User' },
+    user : { type: Schema.Types.ObjectId, ref: 'User',required : true },
     messages : [
         {
             time : { type : Date, default: Date.now },

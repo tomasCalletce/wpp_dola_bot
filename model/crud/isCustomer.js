@@ -1,4 +1,4 @@
-const mongoose = require("../../db.js");
+const mongoose = require("../db.js");
 const Customer = require("../Customer.js");
 const User = require("../User.js");
 
@@ -8,11 +8,12 @@ async function IsCustomer(cell,id){
     if(customer){
         return 0;
     }else{
-        const user = await User.findById(id);
+        const user = await User.findOne({"user" : id});
         if(user){
             const newCustomer = new Customer({
-            cellPhone : user.from,
-            messages : []
+                user : id,
+                cellPhone : cell,
+                messages : []
             });
             await newCustomer.save();
             return 1;
