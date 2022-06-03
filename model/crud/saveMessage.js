@@ -1,10 +1,11 @@
 const mongoose = require("../db.js");
 const Customer = require("../Customer.js")
 
-async function SaveMessage(customer,message){
+async function SaveMessage(customer,message,author){
     try {
         customer.messages.push({
-            message : message
+            message : message,
+            author : author
         });
         await customer.save();
     } catch (error) {

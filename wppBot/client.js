@@ -7,7 +7,7 @@ const IsCustomerNotCreate = require("../model/crud/isCustomerNotCreate")
 const User = require('../model/User')
 const { default : mongoose } = require('mongoose');
 
-const {DiscordRequest} = require('./requests/sendMessage')
+//const {DiscordRequest} = require('./requests/sendMessage')
 
 client.on('message', async msg => {
     if (mongoose.isValidObjectId(msg._data.body)) {
@@ -15,15 +15,8 @@ client.on('message', async msg => {
     }else if(msg.body){
         const res = await IsCustomerNotCreate(msg.from);
         if(res){
-            await SaveMessage(res,String(msg._data.body));
-            const endpoint = `https://discord.com/api/webhooks/${CHANNEL_ID}/${DISCORD_TOKEN}`
-            DiscordRequest(endpoint,{
-                method: 'POST',
-                data: {
-                    content: 'Cuando será el día',
-                },
-            })
-
+            await SaveMessage(res,String(msg._data.body),1);
+            clientDiscord.channels.cache.get("970697740738764854").send(String(msg._data.body));
         }
 
     }
