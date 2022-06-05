@@ -7,7 +7,6 @@ const IsCustomerNotCreate = require("../model/crud/isCustomerNotCreate")
 const User = require('../model/User')
 const { default : mongoose } = require('mongoose');
 
-//const {DiscordRequest} = require('./requests/sendMessage')
 
 client.on('message', async msg => {
     if (mongoose.isValidObjectId(msg._data.body)) {
