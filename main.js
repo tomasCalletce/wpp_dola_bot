@@ -1,3 +1,6 @@
+require('dotenv/config');
+
+
 require('./wppBot/wppConnect')
 require('./discordBot/discordConnect')
 
